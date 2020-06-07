@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html class='whole'>
+
+<link href='stylesheet.css' rel='stylesheet'>
+
+<h1 class='title'>
+Etch-a-Sketch!
+</h1>
+<div class='subtitle'>
+	Hover over the square to fill it in
+</div>
+
+
+<div id='container'>
+</div>
+
+<form id='setSquares'>
+
+</form>
+
+<script>
+
+squares = parseInt(document.getElementById('setSquares').value);
+
+set = document.createElement('input');
+set.id = 'inputBox'
+
+
+
+function makeSquare(){
+	for (i = 0; i < 4; i++){
+	let row = document.createElement('div');
+	row.className = 'row';
+	for (j = 0; j < 4; j++){
+		let box = document.createElement('div');
+		box.className = 'box';
+		row.appendChild(box);
+	}
+	document.getElementById('container').appendChild(row)
+	}
+}
+
+makeSquare();
+
+</script>
+
+
+
+</html>

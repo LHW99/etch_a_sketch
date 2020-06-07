@@ -1,0 +1,38 @@
+.whole {
+	font-family: Helvetica;
+	text-align: center;
+}
+
+.subtitle {
+	margin-bottom: 20px;
+}
+
+.box {
+	width: auto;
+	height: auto;
+	margin: 0px !important;
+	display: inline-block;
+	text-align: center;
+	background-color: #FFFF00;
+	color: #FF0000;
+	border-style: dashed;
+	border-color: black;
+	border-width: 1px;
+}
+
+.box:hover {
+	background-color: #0000FF ;
+}
+
+.row {
+	display: block;
+	float: left;
+	width: 100%;
+	margin: -2px;
+}
+
+#container {
+	text-align: center;
+	width: 80vw;
+	height: auto;
+}
