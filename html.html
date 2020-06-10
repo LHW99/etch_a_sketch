@@ -26,7 +26,8 @@ Etch-a-Sketch!
 
 <script>
 
-document.getElementById('submitSquares').onclick = function() {makeSquare()};
+document.getElementById('submitSquares').onclick = function() {clear();makeSquare()};
+document.getElementById('reset').onclick = function() {clear()};
 ns = document.getElementById('numberSquares');
 
 
@@ -50,10 +51,7 @@ else if (typeof squares !== "number"){
 }
 
 function clear(){
-	let r = document.querySelectorAll(".row");
-	let b = document.querySelectorAll(".box");
-	r.removeChild(b);
-	document.getElementById('container').removeChild(r);
+	document.querySelectorAll('.row').forEach(function(a){a.remove()});
 }
 
 </script>
