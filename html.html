@@ -16,19 +16,23 @@ Etch-a-Sketch!
 
 
 
-<form id='setSquares' style='text-align:center' name='setSquares' onsubmit='return set()'>
+<form id='setSquares' style='text-align:center' name='setSquares'>
 	<br><label for='numberSquares'>Please set the number of squares per column/row:</label><br>
 <input type='textbox' id='numberSquares' name='setSquares'>
-<input type='submit' id='submitSquares' value='Submit' name='setSquares'>
+<input type='button' id='submitSquares' value='Create!' name='setSquares'>
 <input type='reset' id='reset' value='Reset'>
 </form>
 
 
 <script>
 
-squares = document.getElementById('setSquares').value;
+document.getElementById('submitSquares').onclick = function() {makeSquare()};
+ns = document.getElementById('numberSquares');
+
 
 function makeSquare(){
+let squares = ns.value;
+if (squares > 0){
 	for (i = 0; i < squares; i++){
 	let row = document.createElement('div');
 	row.className = 'row';
@@ -40,17 +44,17 @@ function makeSquare(){
 	document.getElementById('container').appendChild(row)
 	}
 }
-
-function set(){
-	if (squares > 0){
-		return squares;
-	}
-	else if (Number.isInteger(squares) === false){
-		alert('Please enter a positive number');
-	}
+else if (typeof squares !== "number"){
+	alert('Please input a positive number');
+}
 }
 
-makeSquare();
+function clear(){
+	let r = document.querySelectorAll(".row");
+	let b = document.querySelectorAll(".box");
+	r.removeChild(b);
+	document.getElementById('container').removeChild(r);
+}
 
 </script>
 
