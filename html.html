@@ -31,7 +31,6 @@ document.getElementById('reset').onclick = function() {clear()};
 ns = document.getElementById('numberSquares');
 con = document.getElementById('container');
 
-
 function makeSquare(){
 let squares = ns.value;
 if (squares > 0){
@@ -55,7 +54,28 @@ else if (typeof squares !== "number"){
 
 function clear(){
 	document.querySelectorAll('.box').forEach(function(a){a.remove()});
+	document.querySelectorAll('.box-change').forEach(function(a){a.remove()});
 }
+
+function color(e){
+	if (e.target.className === "box"){
+		e.target.classList.replace('box', 'box-change');
+	}
+}
+
+function getRandomColor(){
+	letters = '0123456789ABCDEF';
+	color = '#';
+	for (i = 0; i < 6; i++){
+		color += letters[Math.floor(Math.random() * 16)]
+	}
+	return color
+}
+
+
+con.addEventListener('mouseover', color);
+
+
 
 </script>
 
