@@ -29,20 +29,23 @@ Etch-a-Sketch!
 document.getElementById('submitSquares').onclick = function() {clear();makeSquare()};
 document.getElementById('reset').onclick = function() {clear()};
 ns = document.getElementById('numberSquares');
+con = document.getElementById('container');
 
 
 function makeSquare(){
 let squares = ns.value;
 if (squares > 0){
-	for (i = 0; i < squares; i++){
-	let row = document.createElement('div');
-	row.className = 'row';
-	for (j = 0; j < squares; j++){
-		let box = document.createElement('div');
-		box.className = 'box';
-		row.appendChild(box);
-	}
-	document.getElementById('container').appendChild(row)
+	con.innerHTML = '';
+	con.style.setProperty(
+		"grid-template-columns",
+		`repeat(${squares},2fr)`);
+	con.style.setProperty(
+		"grid-template-rows",
+		`repeat(${squares},2fr`);
+	for (i=0; i<squares*squares; i++){
+		div=document.createElement('div');
+		div.classList.add("box");
+		con.appendChild(div);
 	}
 }
 else if (typeof squares !== "number"){
@@ -51,7 +54,7 @@ else if (typeof squares !== "number"){
 }
 
 function clear(){
-	document.querySelectorAll('.row').forEach(function(a){a.remove()});
+	document.querySelectorAll('.box').forEach(function(a){a.remove()});
 }
 
 </script>
